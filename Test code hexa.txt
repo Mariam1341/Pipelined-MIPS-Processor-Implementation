@@ -1,0 +1,28 @@
+
+LUI 0X384            0XA384
+ADDI R5,R1,20        0X8354
+XOR R3,R1,R5         0X035B
+LW R1,0(R0)          0X2040
+LW R2,1(R0)          0X2081
+LW R3,2(R0)          0X20C2
+ADDI R4,R4,10        0X890A
+SUB R4,R4,R4         0X1921
+ADD R4,R2,R4         0X1520
+SLT R6,R2,R3         0X14F2
+BEQ R6,R0,2          0X4C02
+ADD R2,R1,R2         0X1290
+BEQ R0,R0,-5         0X403B
+SW R4,0(R0)          0X3100
+
+JAL FUNC             0XB012
+SLL R3,R2,R5         0X055C
+ADD R5,R5,R5         0X1B68
+BWQ R0,R0,-1
+FUNC:
+OR R5,R2,R3          0X04E9
+LW R1,0(R0)          0X2040
+LW R2,5(R1)          0X2285
+LW R3,6(R1)          0X22C6
+AND R4,R2,R3         0X04E0
+SW R4,0(R0)          0X3100
+JR R7                0X1E06
